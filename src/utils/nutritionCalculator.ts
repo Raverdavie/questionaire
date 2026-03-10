@@ -114,7 +114,7 @@ function generateMealPlan(
   _allergens: string[],
   dailyCalories: number,
   dailyProtein: number,
-  goal: string,
+  _goal: string,
   lang: 'en' | 'pt'
 ) {
   const dietKey =
