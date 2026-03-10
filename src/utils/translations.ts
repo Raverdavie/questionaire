@@ -57,6 +57,55 @@ const translations = {
       dailyMacros: 'Daily Macronutrient Distribution',
       sampleMeals: 'Sample Daily Meal Plan',
       tips: 'Nutrition Tips for Your Goal',
+      tipsContent: {
+        goals: {
+          weight_loss: [
+            'Create a moderate calorie deficit (300-500 calories below TDEE)',
+            'Increase protein intake to preserve muscle mass',
+            'Drink plenty of water (aim for 2-3 liters daily)',
+            'Avoid sugary drinks and processed foods',
+          ],
+          muscle_gain: [
+            'Consume 300-500 calories above your TDEE',
+            'Prioritize protein intake (aim for 2g per kg of body weight)',
+            'Combine with a proper strength training program',
+            'Ensure adequate rest and recovery (7-9 hours sleep)',
+          ],
+          general_wellness: [
+            'Focus on balanced macronutrients and whole foods',
+            'Incorporate a variety of colorful fruits and vegetables',
+            'Stay hydrated throughout the day',
+            'Practice portion control and mindful eating',
+          ],
+          athlete_performance: [
+            'Time carbs around your training sessions',
+            'Focus on peak performance nutrition',
+            'Monitor electrolyte balance, especially when training',
+            'Include foods rich in antioxidants for recovery',
+          ],
+        },
+        dietary: {
+          vegetarian: [
+            'Combine different plant sources to get all amino acids',
+            'Include legumes, nuts, and seeds for protein variety',
+          ],
+          vegan: [
+            'Ensure adequate B12 intake through fortified foods or supplements',
+            'Combine grains with legumes for complete proteins',
+            'Consider supplementing with vitamin D and omega-3s',
+          ],
+        },
+        activity: {
+          active: [
+            'Replenish electrolytes after intense training',
+            'Consider post-workout nutrition within 2 hours',
+          ],
+        },
+        general: [
+          'Keep a food journal to track consistency',
+          'Reassess your plan every 4-6 weeks and adjust as needed',
+        ],
+      },
       dietaryNotes: 'Dietary Accommodations',
     },
     langName: 'Português',
@@ -256,6 +305,55 @@ const translations = {
       dailyMacros: 'Distribuição Diária de Macronutrientes',
       sampleMeals: 'Plano Diário de Refeição Exemplo',
       tips: 'Dicas Nutricionais para Seu Objetivo',
+      tipsContent: {
+        goals: {
+          weight_loss: [
+            'Crie um déficit calórico moderado (300-500 calorias abaixo do TDEE)',
+            'Aumente a ingestão de proteínas para preservar massa muscular',
+            'Beba bastante água (meta 2-3 litros por dia)',
+            'Evite bebidas açucaradas e alimentos processados',
+          ],
+          muscle_gain: [
+            'Consuma 300-500 calorias acima do seu TDEE',
+            'Priorize a ingestão de proteínas (objetivo 2g por kg de peso corporal)',
+            'Combine com um programa adequado de treinamento de força',
+            'Garanta descanso e recuperação adequados (7-9 horas de sono)',
+          ],
+          general_wellness: [
+            'Foque em macronutrientes balanceados e alimentos integrais',
+            'Inclua uma variedade de frutas e vegetais coloridos',
+            'Mantenha-se hidratado ao longo do dia',
+            'Pratique controle de porções e alimentação consciente',
+          ],
+          athlete_performance: [
+            'Timing de carboidratos em torno dos treinos',
+            'Foque em nutrição para desempenho máximo',
+            'Monitore o equilíbrio eletrolítico, especialmente ao treinar',
+            'Inclua alimentos ricos em antioxidantes para recuperação',
+          ],
+        },
+        dietary: {
+          vegetarian: [
+            'Combine diferentes fontes vegetais para obter todos os aminoácidos',
+            'Inclua leguminosas, nozes e sementes para variedade de proteínas',
+          ],
+          vegan: [
+            'Garanta ingestão adequada de B12 através de alimentos fortificados ou suplementos',
+            'Combine grãos com leguminosas para proteínas completas',
+            'Considere suplementar vitamina D e ômega-3',
+          ],
+        },
+        activity: {
+          active: [
+            'Reponha eletrólitos após treinos intensos',
+            'Considere nutrição pós-treino dentro de 2 horas',
+          ],
+        },
+        general: [
+          'Mantenha um diário alimentar para acompanhar a consistência',
+          'Reavalie seu plano a cada 4-6 semanas e ajuste conforme necessário',
+        ],
+      },
       dietaryNotes: 'Acomodações Dietéticas',
     },
     langName: 'English',

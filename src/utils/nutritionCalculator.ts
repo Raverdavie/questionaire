@@ -88,7 +88,7 @@ export function calculateNutritionPlan(userData: UserData & { lang?: 'en' | 'pt'
   const meals = generateMealPlan(dietaryPreference, allergens, dailyCalories, protein, goal, lang);
 
   // Generate tips
-  const tips = generateTips(goal, dietaryPreference, activityLevel);
+  const tips = generateTips(goal, dietaryPreference, activityLevel, lang);
 
   // Generate dietary notes
   const dietaryNotes = generateDietaryNotes(dietaryPreference, allergens);
@@ -147,55 +147,27 @@ function generateMealPlan(
 function generateTips(
   goal: string,
   dietaryPreference: string,
-  activityLevel: string
+  activityLevel: string,
+  lang: 'en' | 'pt' = 'en'
 ) {
+  const content = (translations as any)[lang]?.plan?.tipsContent || (translations as any).en.plan.tipsContent;
   const tips: string[] = [];
 
-  // Goal-specific tips
-  if (goal === 'weight_loss') {
-    tips.push('Create a moderate calorie deficit (300-500 calories below TDEE)');
-    tips.push('Increase protein intake to preserve muscle mass');
-    tips.push('Drink plenty of water (aim for 2-3 liters daily)');
-    tips.push('Avoid sugary drinks and processed foods');
-  } else if (goal === 'muscle_gain') {
-    tips.push('Consume 300-500 calories above your TDEE');
-    tips.push('Prioritize protein intake (aim for 2g per kg of body weight)');
-    tips.push('Combine with a proper strength training program');
-    tips.push('Ensure adequate rest and recovery (7-9 hours sleep)');
-  } else if (goal === 'general_wellness') {
-    tips.push('Focus on balanced macronutrients and whole foods');
-    tips.push('Incorporate a variety of colorful fruits and vegetables');
-    tips.push('Stay hydrated throughout the day');
-    tips.push('Practice portion control and mindful eating');
-  } else if (goal === 'athlete_performance') {
-    tips.push('Time carbs around your training sessions');
-    tips.push('Focus on peak performance nutrition');
-    tips.push('Monitor electrolyte balance, especially when training');
-    tips.push('Include foods rich in antioxidants for recovery');
+  if (content?.goals && (content.goals as any)[goal]) {
+    tips.push(...(content.goals as any)[goal]);
   }
 
-  // Dietary preference tips
-  if (dietaryPreference === 'vegetarian') {
-    tips.push('Combine different plant sources to get all amino acids');
-    tips.push('Include legumes, nuts, and seeds for protein variety');
-  } else if (dietaryPreference === 'vegan') {
-    tips.push('Ensure adequate B12 intake through fortified foods or supplements');
-    tips.push('Combine grains with legumes for complete proteins');
-    tips.push('Consider supplementing with vitamin D and omega-3s');
+  if (content?.dietary && (content.dietary as any)[dietaryPreference]) {
+    tips.push(...(content.dietary as any)[dietaryPreference]);
   }
 
-  // Activity level tips
-  if (
-    activityLevel === 'active' ||
-    activityLevel === 'very_active'
-  ) {
-    tips.push('Replenish electrolytes after intense training');
-    tips.push('Consider post-workout nutrition within 2 hours');
+  if ((activityLevel === 'active' || activityLevel === 'very_active') && content?.activity?.active) {
+    tips.push(...content.activity.active);
   }
 
-  // General wellness tips
-  tips.push('Keep a food journal to track consistency');
-  tips.push('Reassess your plan every 4-6 weeks and adjust as needed');
+  if (content?.general) {
+    tips.push(...content.general);
+  }
 
   return tips;
 }
