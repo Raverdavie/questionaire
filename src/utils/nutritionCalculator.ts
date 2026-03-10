@@ -111,7 +111,7 @@ export function calculateNutritionPlan(userData: UserData & { lang?: 'en' | 'pt'
 
 function generateMealPlan(
   dietaryPreference: string,
-  allergens: string[],
+  _allergens: string[],
   dailyCalories: number,
   dailyProtein: number,
   goal: string,
