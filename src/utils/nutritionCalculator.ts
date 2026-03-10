@@ -68,8 +68,7 @@ export function calculateNutritionPlan(userData: UserData & { lang?: 'en' | 'pt'
     proteinPercent = 25;
   }
 
-  const proteinCalories = protein * 4;
-  const remainingCalories = dailyCalories - proteinCalories;
+  // proteinCalories and remainingCalories were unused; removed to avoid unused-variable diagnostics
 
   if (
     goal === 'weight_loss' ||

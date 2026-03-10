@@ -63,10 +63,15 @@ export default function NutritionPlan({ data, onBack, lang }: NutritionPlanProps
           {t.back}
         </button>
         <button
-          onClick={handleDownloadPDF}
-          className="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
+          onClick={() => {
+            if (!pdfLoading) handleDownloadPDF();
+          }}
+          disabled={pdfLoading}
+          className={`px-4 py-2 text-white font-semibold rounded-lg transition-colors ${
+            pdfLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'
+          }`}
         >
-          {t.downloadPdf}
+          {pdfLoading ? 'Generating PDF...' : t.downloadPdf}
         </button>
       </div>
 
