@@ -58,7 +58,7 @@ export default function NutritionPlan({ data, onBack, lang }: NutritionPlanProps
       <div className="flex gap-4 mb-8">
         <button
           onClick={onBack}
-          className="px-4 py-2 bg-gray-600 text-white font-semibold rounded-lg hover:bg-gray-700 transition-colors"
+          className="px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors"
         >
           {t.back}
         </button>
@@ -67,86 +67,95 @@ export default function NutritionPlan({ data, onBack, lang }: NutritionPlanProps
             if (!pdfLoading) handleDownloadPDF();
           }}
           disabled={pdfLoading}
-          className={`px-4 py-2 text-white font-semibold rounded-lg transition-colors ${
-            pdfLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'
+          className={`px-6 py-3 text-white font-semibold rounded-lg transition-colors ${
+            pdfLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-emerald-600 hover:bg-emerald-700'
           }`}
         >
           {pdfLoading ? 'Generating PDF...' : t.downloadPdf}
         </button>
       </div>
 
-      <div ref={planRef} className="bg-white rounded-lg shadow-lg p-8 space-y-8">
+      <div ref={planRef} className="bg-white rounded-xl shadow-xl p-10 border border-emerald-100 space-y-10">
         {/* Header */}
-        <div className="border-b-2 border-blue-600 pb-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{t.plan.header}</h1>
-          <p className="text-gray-600">{t.plan.basedOn}</p>
+        <div className="border-b-2 border-emerald-600 pb-8">
+          <h1 className="text-4xl font-bold text-emerald-900 mb-3">{t.plan.header}</h1>
+          <p className="text-lg text-emerald-700">{t.plan.basedOn}</p>
         </div>
 
         {/* User Profile Summary */}
         <section>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t.plan.profile}</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <p className="text-sm text-gray-600">BMI</p>
-              <p className="text-2xl font-bold text-blue-600">{data.bmi}</p>
+          <h2 className="text-2xl font-bold text-emerald-900 mb-6 flex items-center">
+            <span className="w-1 h-7 bg-emerald-600 mr-3 rounded"></span>
+            {t.plan.profile}
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-lg border border-emerald-200">
+              <p className="text-sm text-emerald-700 font-semibold">BMI</p>
+              <p className="text-3xl font-bold text-emerald-600 mt-2">{data.bmi}</p>
             </div>
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <p className="text-sm text-gray-600">Daily Calories</p>
-              <p className="text-2xl font-bold text-blue-600">{data.dailyCalories.toLocaleString()}</p>
+            <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-lg border border-emerald-200">
+              <p className="text-sm text-emerald-700 font-semibold">Daily Calories</p>
+              <p className="text-3xl font-bold text-emerald-600 mt-2">{data.dailyCalories.toLocaleString()}</p>
             </div>
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <p className="text-sm text-gray-600">Protein Target</p>
-              <p className="text-2xl font-bold text-blue-600">{data.protein}g</p>
+            <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-lg border border-emerald-200">
+              <p className="text-sm text-emerald-700 font-semibold">Protein Target</p>
+              <p className="text-3xl font-bold text-emerald-600 mt-2">{data.protein}g</p>
             </div>
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <p className="text-sm text-gray-600">Activity Level</p>
-              <p className="text-lg font-bold text-blue-600">{data.activityLevel}</p>
+            <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-lg border border-emerald-200">
+              <p className="text-sm text-emerald-700 font-semibold">Activity Level</p>
+              <p className="text-xl font-bold text-emerald-600 mt-2">{data.activityLevel}</p>
             </div>
           </div>
         </section>
 
         {/* Macronutrient Distribution */}
         <section>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t.plan.dailyMacros}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="border-l-4 border-red-500 bg-red-50 p-6 rounded-lg">
-              <p className="text-sm text-gray-600 mb-2">Protein</p>
-              <p className="text-3xl font-bold text-red-600">{data.protein}g</p>
-              <p className="text-sm text-gray-500 mt-2">{data.proteinPercent}% of daily calories</p>
+          <h2 className="text-2xl font-bold text-emerald-900 mb-6 flex items-center">
+            <span className="w-1 h-7 bg-emerald-600 mr-3 rounded"></span>
+            {t.plan.dailyMacros}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="border-l-4 border-teal-500 bg-teal-50 p-6 rounded-lg">
+              <p className="text-sm text-teal-700 font-semibold mb-2">Protein</p>
+              <p className="text-3xl font-bold text-teal-600">{data.protein}g</p>
+              <p className="text-sm text-teal-600 mt-3">{data.proteinPercent}% of daily calories</p>
             </div>
-            <div className="border-l-4 border-yellow-500 bg-yellow-50 p-6 rounded-lg">
-              <p className="text-sm text-gray-600 mb-2">Carbohydrates</p>
-              <p className="text-3xl font-bold text-yellow-600">{data.carbs}g</p>
-              <p className="text-sm text-gray-500 mt-2">{data.carbsPercent}% of daily calories</p>
+            <div className="border-l-4 border-lime-500 bg-lime-50 p-6 rounded-lg">
+              <p className="text-sm text-lime-700 font-semibold mb-2">Carbohydrates</p>
+              <p className="text-3xl font-bold text-lime-600">{data.carbs}g</p>
+              <p className="text-sm text-lime-600 mt-3">{data.carbsPercent}% of daily calories</p>
             </div>
-            <div className="border-l-4 border-orange-500 bg-orange-50 p-6 rounded-lg">
-              <p className="text-sm text-gray-600 mb-2">Fats</p>
-              <p className="text-3xl font-bold text-orange-600">{data.fats}g</p>
-              <p className="text-sm text-gray-500 mt-2">{data.fatsPercent}% of daily calories</p>
+            <div className="border-l-4 border-emerald-500 bg-emerald-50 p-6 rounded-lg">
+              <p className="text-sm text-emerald-700 font-semibold mb-2">Fats</p>
+              <p className="text-3xl font-bold text-emerald-600">{data.fats}g</p>
+              <p className="text-sm text-emerald-600 mt-3">{data.fatsPercent}% of daily calories</p>
             </div>
           </div>
         </section>
 
         {/* Daily Meal Recommendations */}
         <section>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6">{t.plan.sampleMeals}</h2>
-          <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-emerald-900 mb-6 flex items-center">
+            <span className="w-1 h-7 bg-emerald-600 mr-3 rounded"></span>
+            {t.plan.sampleMeals}
+          </h2>
+          <div className="space-y-5">
             {data.meals.map((meal: any, index: number) => (
-              <div key={index} className="border border-gray-200 rounded-lg p-5">
-                <div className="flex justify-between items-start mb-3">
+              <div key={index} className="border border-emerald-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">{meal.name}</h3>
-                    <p className="text-sm text-gray-500">{meal.time}</p>
+                    <h3 className="text-lg font-bold text-emerald-900">{meal.name}</h3>
+                    <p className="text-sm text-emerald-600 mt-1">{meal.time}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm text-gray-600">{meal.calories} cal</p>
-                    <p className="text-sm text-gray-600">{meal.protein}g protein</p>
+                    <p className="text-sm text-emerald-700 font-semibold">{meal.calories} cal</p>
+                    <p className="text-sm text-emerald-600">{meal.protein}g protein</p>
                   </div>
                 </div>
-                <ul className="space-y-1">
+                <ul className="space-y-2">
                   {meal.foods.map((food: string, idx: number) => (
-                    <li key={idx} className="text-sm text-gray-700 flex items-center">
-                      <span className="text-blue-500 mr-2">•</span>
+                    <li key={idx} className="text-sm text-emerald-800 flex items-center">
+                      <span className="text-emerald-500 mr-3 font-bold">•</span>
                       {food}
                     </li>
                   ))}
@@ -158,13 +167,16 @@ export default function NutritionPlan({ data, onBack, lang }: NutritionPlanProps
 
         {/* Nutrition Tips */}
         <section>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t.plan.tips}</h2>
-          <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-lg">
-            <ul className="space-y-3">
+          <h2 className="text-2xl font-bold text-emerald-900 mb-6 flex items-center">
+            <span className="w-1 h-7 bg-emerald-600 mr-3 rounded"></span>
+            {t.plan.tips}
+          </h2>
+          <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border-l-4 border-emerald-600 p-8 rounded-lg">
+            <ul className="space-y-4">
               {data.tips.map((tip: string, index: number) => (
                 <li key={index} className="flex items-start">
-                  <span className="text-green-600 font-bold mr-3">✓</span>
-                  <span className="text-gray-700">{tip}</span>
+                  <span className="text-emerald-600 font-bold mr-3 text-xl">✓</span>
+                  <span className="text-emerald-900">{tip}</span>
                 </li>
               ))}
             </ul>
@@ -174,9 +186,12 @@ export default function NutritionPlan({ data, onBack, lang }: NutritionPlanProps
         {/* Dietary Notes */}
         {data.dietaryNotes && (
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t.plan.dietaryNotes}</h2>
-            <div className="bg-purple-50 border-l-4 border-purple-600 p-6 rounded-lg">
-              <p className="text-gray-700">{data.dietaryNotes}</p>
+            <h2 className="text-2xl font-bold text-emerald-900 mb-6 flex items-center">
+              <span className="w-1 h-7 bg-emerald-600 mr-3 rounded"></span>
+              {t.plan.dietaryNotes}
+            </h2>
+            <div className="bg-gradient-to-r from-emeral-50 to-cyan-50 border-l-4 border-emerald-600 p-8 rounded-lg">
+              <p className="text-emerald-900 text-lg leading-relaxed">{data.dietaryNotes}</p>
             </div>
           </section>
         )}

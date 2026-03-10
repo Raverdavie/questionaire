@@ -34,17 +34,17 @@ export default function Home() {
   const t = translations[lang];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-8">
+    <main className="min-h-screen bg-gradient-to-br from-stone-50 via-green-50 to-emerald-50">
+      <div className="container mx-auto px-4 py-12">
+        <div className="flex items-center justify-between mb-12">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">{t.title}</h1>
-            <p className="text-lg text-gray-600">{t.subtitle}</p>
+            <h1 className="text-5xl font-bold text-emerald-900 mb-3">{t.title}</h1>
+            <p className="text-lg text-emerald-700">{t.subtitle}</p>
           </div>
           <div>
             <button
               onClick={toggleLang}
-              className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300"
+              className="px-6 py-3 bg-emerald-100 text-emerald-800 font-semibold rounded-full hover:bg-emerald-200 transition-colors duration-200 border border-emerald-300"
             >
               {t.langName}
             </button>

@@ -71,15 +71,18 @@ export default function Questionnaire({ onSubmit, lang }: QuestionnaireProps) {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white rounded-lg shadow-lg p-8">
-        <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="bg-white rounded-xl shadow-xl p-10 border border-emerald-100">
+        <form onSubmit={handleSubmit} className="space-y-8">
           {/* Personal Information */}
-          <div className="border-b pb-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t.personalInfo}</h2>
+          <div className="border-b border-emerald-200 pb-8">
+            <h2 className="text-2xl font-bold text-emerald-900 mb-6 flex items-center">
+              <span className="w-1 h-8 bg-emerald-600 mr-3 rounded"></span>
+              {t.personalInfo}
+            </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.age}</label>
+                <label className="block text-sm font-semibold text-emerald-900 mb-2">{t.age}</label>
                 <input
                   type="number"
                   name="age"
@@ -88,19 +91,19 @@ export default function Questionnaire({ onSubmit, lang }: QuestionnaireProps) {
                   required
                   min="18"
                   max="120"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-emerald-50 focus:bg-white transition-colors"
                   placeholder="e.g., 30"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.gender}</label>
+                <label className="block text-sm font-semibold text-emerald-900 mb-2">{t.gender}</label>
                 <select
                   name="gender"
                   value={formData.gender}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-emerald-50 focus:bg-white transition-colors"
                 >
                   <option value="">{t.selectGender}</option>
                   <option value="male">Male</option>
@@ -110,7 +113,7 @@ export default function Questionnaire({ onSubmit, lang }: QuestionnaireProps) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.weight}</label>
+                <label className="block text-sm font-semibold text-emerald-900 mb-2">{t.weight}</label>
                 <input
                   type="number"
                   name="weight"
@@ -120,13 +123,13 @@ export default function Questionnaire({ onSubmit, lang }: QuestionnaireProps) {
                   min="30"
                   max="300"
                   step="0.1"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-emerald-50 focus:bg-white transition-colors"
                   placeholder="e.g., 75"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.height}</label>
+                <label className="block text-sm font-semibold text-emerald-900 mb-2">{t.height}</label>
                 <input
                   type="number"
                   name="height"
@@ -136,7 +139,7 @@ export default function Questionnaire({ onSubmit, lang }: QuestionnaireProps) {
                   min="100"
                   max="250"
                   step="0.1"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-emerald-50 focus:bg-white transition-colors"
                   placeholder="e.g., 180"
                 />
               </div>
@@ -144,18 +147,21 @@ export default function Questionnaire({ onSubmit, lang }: QuestionnaireProps) {
           </div>
 
           {/* Health Information */}
-          <div className="border-b pb-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t.healthGoals}</h2>
+          <div className="border-b border-emerald-200 pb-8">
+            <h2 className="text-2xl font-bold text-emerald-900 mb-6 flex items-center">
+              <span className="w-1 h-8 bg-emerald-600 mr-3 rounded"></span>
+              {t.healthGoals}
+            </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{t.primaryGoal}</label>
+                <label className="block text-sm font-semibold text-emerald-900 mb-2">{t.primaryGoal}</label>
                 <select
                   name="goal"
                   value={formData.goal}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-emerald-50 focus:bg-white transition-colors"
                 >
                   <option value="">{t.selectGoal}</option>
                   <option value="weight_loss">{t.goals.weight_loss}</option>
@@ -166,13 +172,13 @@ export default function Questionnaire({ onSubmit, lang }: QuestionnaireProps) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{t.activityLevel}</label>
+                <label className="block text-sm font-semibold text-emerald-900 mb-2">{t.activityLevel}</label>
                 <select
                   name="activityLevel"
                   value={formData.activityLevel}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-emerald-50 focus:bg-white transition-colors"
                 >
                   <option value="">{t.selectActivity}</option>
                   <option value="sedentary">{t.activityOptions.sedentary}</option>
@@ -186,18 +192,21 @@ export default function Questionnaire({ onSubmit, lang }: QuestionnaireProps) {
           </div>
 
           {/* Dietary Preferences */}
-          <div className="border-b pb-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t.dietaryPreferences}</h2>
+          <div className="border-b border-emerald-200 pb-8">
+            <h2 className="text-2xl font-bold text-emerald-900 mb-6 flex items-center">
+              <span className="w-1 h-8 bg-emerald-600 mr-3 rounded"></span>
+              {t.dietaryPreferences}
+            </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{t.dietaryPreference}</label>
+                <label className="block text-sm font-semibold text-emerald-900 mb-2">{t.dietaryPreference}</label>
                 <select
                   name="dietaryPreference"
                   value={formData.dietaryPreference}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-emerald-50 focus:bg-white transition-colors"
                 >
                   <option value="">{t.selectDietPref}</option>
                   <option value="omnivore">{t.dietaryOptions.omnivore}</option>
@@ -209,13 +218,13 @@ export default function Questionnaire({ onSubmit, lang }: QuestionnaireProps) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{t.currentDiet}</label>
+                <label className="block text-sm font-semibold text-emerald-900 mb-2">{t.currentDiet}</label>
                 <select
                   name="currentDiet"
                   value={formData.currentDiet}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-emerald-50 focus:bg-white transition-colors"
                 >
                   <option value="">{t.selectCurrentDiet}</option>
                   <option value="balanced">{t.currentDietOptions.balanced}</option>
@@ -227,17 +236,17 @@ export default function Questionnaire({ onSubmit, lang }: QuestionnaireProps) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">{t.allergies}</label>
-                <div className="space-y-2">
+                <label className="block text-sm font-semibold text-emerald-900 mb-4">{t.allergies}</label>
+                <div className="space-y-3">
                   {['Dairy', 'Gluten', 'Nuts', 'Fish', 'Soy', 'Eggs'].map((allergen) => (
-                    <label key={allergen} className="flex items-center">
+                    <label key={allergen} className="flex items-center cursor-pointer group">
                       <input
                         type="checkbox"
                         checked={formData.allergens.includes(allergen)}
                         onChange={() => handleAllergenChange(allergen)}
-                        className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        className="w-5 h-5 rounded border-emerald-300 text-emerald-600 focus:ring-emerald-500 bg-white cursor-pointer"
                       />
-                      <span className="ml-2 text-sm text-gray-700">{allergen}</span>
+                      <span className="ml-3 text-sm text-emerald-900 group-hover:text-emerald-600 transition-colors">{allergen}</span>
                     </label>
                   ))}
                 </div>
@@ -246,11 +255,11 @@ export default function Questionnaire({ onSubmit, lang }: QuestionnaireProps) {
           </div>
 
           {/* Submit Button */}
-          <div className="flex justify-center">
+          <div className="flex justify-center pt-6">
             <button
               type="submit"
               disabled={loading}
-              className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:bg-gray-400 transition-colors duration-200"
+              className="px-10 py-4 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105 shadow-lg"
             >
               {loading ? t.generating : t.generateButton}
             </button>
